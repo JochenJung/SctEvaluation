@@ -1,0 +1,15 @@
+testclass StatechartTest for statechart SctOperationEvaluation {
+	
+	@Test
+	operation test() {
+		enter
+		
+		mock evaluation.exampleOperation("") returns (false)
+		
+		raise evaluation.inEvent : ""
+		
+		assert active(main_region.StateB)
+		
+		exit
+	}
+}

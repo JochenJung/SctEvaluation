@@ -1,0 +1,35 @@
+GeneratorModel for yakindu::cpp {
+
+	const PROJECT : string = "SctOperationEvaluation"
+
+	const GEN_SRC_FOLDER : string = "src-test"
+	const LIB_SRC_FOLDER : string = "src-lib"
+
+	statechart SctOperationEvaluation
+	{
+		feature GeneralFeatures
+		{
+			timerService = true
+		}
+
+		feature Outlet
+		{
+			targetProject       = PROJECT
+			targetFolder        = GEN_SRC_FOLDER
+			libraryTargetFolder = LIB_SRC_FOLDER
+		}
+
+		feature IdentifierSettings
+		{
+			moduleName = "SctOperationEvaluationUnit"
+			headerFilenameExtension = "h"
+			sourceFilenameExtension = "cpp"
+			separator = "_"
+		}
+				
+		feature OutEventAPI
+		{
+			getters = true
+		}
+	}
+}

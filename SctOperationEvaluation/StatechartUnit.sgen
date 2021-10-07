@@ -1,0 +1,22 @@
+GeneratorModel for sctunit::cpp {
+
+	const PROJECT : string = "SctOperationEvaluation"
+
+	const FOLDER : string = "src-test"
+
+	test StatechartTest {
+
+		feature Outlet {
+			targetProject = PROJECT
+			targetFolder = FOLDER
+		}
+		
+				feature IdentifierSettings
+		{
+			moduleName = "SctOperationEvaluationUnit"
+			headerFilenameExtension = "h"
+			sourceFilenameExtension = "cpp"
+			separator = "_"
+		}
+	}
+}
