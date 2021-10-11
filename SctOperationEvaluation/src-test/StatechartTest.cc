@@ -14,9 +14,15 @@ SctOperationEvaluationUnit* statechart;
 
 class EvaluationExampleOperationMock{
 	typedef sc_boolean (EvaluationExampleOperationMock::*functiontype)();
-	struct parameters {
+	struct parameters
+	{
 		const sc_string example;
 		sc_boolean (EvaluationExampleOperationMock::*behavior)();
+
+		inline parameters(const sc_string text) : example(text)
+		{
+		}
+
 		inline bool operator==(const parameters& other) {
 			return (strcmp(this->example, other.example) == 0);
 		}
@@ -35,8 +41,7 @@ class EvaluationExampleOperationMock{
 	}
 
 	void setExampleOperationBehavior(const sc_string example,sc_boolean (EvaluationExampleOperationMock::*func)()){
-		parameters p;
-		p.example = example;
+		parameters p(example);
 		p.behavior = func;
 	
 		std::list<EvaluationExampleOperationMock::parameters>::iterator i = std::find(mocks.begin(), mocks.end(), p);
@@ -47,9 +52,8 @@ class EvaluationExampleOperationMock{
 	}
 
 	functiontype getBehavior(const sc_string example){
-		parameters p;
-		p.example = example;
-		
+		parameters p(example);
+
 		std::list<EvaluationExampleOperationMock::parameters>::iterator i = std::find(mocks.begin(), mocks.end(), p);
 		if(i != mocks.end()) {
 			return  i->behavior;
