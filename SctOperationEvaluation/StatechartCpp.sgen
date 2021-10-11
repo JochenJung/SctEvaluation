@@ -9,7 +9,7 @@ GeneratorModel for yakindu::cpp {
 	{
 		feature GeneralFeatures
 		{
-			timerService = true
+			timerService = false
 		}
 
 		feature Outlet

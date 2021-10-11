@@ -13,12 +13,15 @@ CONFIG -= app_bundle
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    src-test/SctOperationEvaluationUnit.cpp \
+	src-test/SctOperationEvaluationUnit.cpp \
 	src-test/StatechartTest.cc \
 	src-test/sc_runner.cpp
 
 HEADERS += \
-    src-test/SctOperationEvaluationUnit.h \
+	src-lib/sc_statemachine.h \
+	src-lib/sc_string.h \
+	src-lib/sc_types.h \
+	src-test/SctOperationEvaluationUnit.h \
 	src-test/sc_runner.h
 
 INCLUDEPATH += src-gen/ src-lib/
