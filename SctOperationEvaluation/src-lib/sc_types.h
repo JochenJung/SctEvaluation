@@ -7,8 +7,18 @@
 // #include <cstdint>
 #include <stdint.h>
 
+#if 0
+
 #ifndef sc_string
 #define sc_string      char*
+#endif
+
+#else
+
+#include "sc_string.h"
+
+typedef SctString &    sc_string;
+
 #endif
 
 typedef int_fast16_t   sc_short;
