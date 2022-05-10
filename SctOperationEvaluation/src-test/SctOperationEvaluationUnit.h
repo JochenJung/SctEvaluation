@@ -4,16 +4,17 @@
 #define SCTOPERATIONEVALUATIONUNIT_H_
 
 /*!
- * Forward declaration for the SctOperationEvaluationUnit state machine.
- */
- class SctOperationEvaluationUnit;
+Forward declaration for the SctOperationEvaluationUnit state machine.
+*/
+class SctOperationEvaluationUnit;
 
 
 #include <deque>
 #include "../src-lib/sc_types.h"
 #include "../src-lib/sc_statemachine.h"
 
-/*! \file Header of the state machine 'SctOperationEvaluation'.
+/*! \file
+Header of the state machine 'SctOperationEvaluation'.
 */
 
 
@@ -84,6 +85,7 @@ class SctOperationEvaluationUnit : public sc::StatemachineInterface
 					
 		static const sc_integer numStates = 2;
 		
+		
 		//! Inner class for evaluation interface scope.
 		class Evaluation
 		{
@@ -92,6 +94,7 @@ class SctOperationEvaluationUnit : public sc::StatemachineInterface
 				
 				/*! Raises the in event 'inEvent' that is defined in the interface scope 'evaluation'. */
 				void raiseInEvent(sc_string value);
+				
 				
 				
 				

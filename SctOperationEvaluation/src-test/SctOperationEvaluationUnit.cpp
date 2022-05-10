@@ -2,15 +2,16 @@
 
 #include "SctOperationEvaluationUnit.h"
 
-/*! \file Implementation of the state machine 'SctOperationEvaluation'
+/*! \file
+Implementation of the state machine 'SctOperationEvaluation'
 */
 
 
 
 
-SctOperationEvaluationUnit::SctOperationEvaluationUnit()  :
-ifaceEvaluation(sc_null),
-isExecuting(false)
+SctOperationEvaluationUnit::SctOperationEvaluationUnit() :
+	ifaceEvaluation(sc_null),
+	isExecuting(false)
 {
 	this->ifaceEvaluation.parent = this;
 	for (sc_ushort i = 0; i < maxOrthogonalStates; ++i)
@@ -24,10 +25,10 @@ SctOperationEvaluationUnit::~SctOperationEvaluationUnit()
 }
 
 SctOperationEvaluationUnit::Evaluation::Evaluation(SctOperationEvaluationUnit* parent) :
-inEvent_raised(false),
-inEvent_value((sc_string)""),
-parent(parent),
-ifaceEvaluationOperationCallback(sc_null)
+	inEvent_raised(false),
+	inEvent_value((sc_string)""),
+	parent(parent),
+	ifaceEvaluationOperationCallback(sc_null)
 {
 }
 
@@ -107,13 +108,21 @@ sc_boolean SctOperationEvaluationUnit::isStateActive(SctOperationEvaluationState
 {
 	switch (state)
 	{
-		case main_region_StateA : 
-			return (sc_boolean) (stateConfVector[SCVI_MAIN_REGION_STATEA] == main_region_StateA
-			);
-		case main_region_StateB : 
-			return (sc_boolean) (stateConfVector[SCVI_MAIN_REGION_STATEB] == main_region_StateB
-			);
-		default: return false;
+		case main_region_StateA :
+		{
+			return (sc_boolean) (stateConfVector[SCVI_MAIN_REGION_STATEA] == main_region_StateA);
+			break;
+		}
+		case main_region_StateB :
+		{
+			return (sc_boolean) (stateConfVector[SCVI_MAIN_REGION_STATEB] == main_region_StateB);
+			break;
+		}
+		default:
+		{
+			return false;
+			break;
+		}
 	}
 }
 
